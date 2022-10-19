@@ -4,39 +4,39 @@ import "fmt"
 
 func main() {
 
-	zigzag(4, "HELLOWORLDPEOPLE")
+	convert("HELLOWORLDPEOPLE", 4)
 
 }
 
-func zigzag(baris int, huruf string) {
-	if baris > 0 {
-		longprint := len(huruf) - 1
+func convert(s string, numRows int) {
+	if numRows > 0 {
+		longprint := len(s) - 1
 		fmt.Println(longprint)
-		baris = baris - 1
+		numRows = numRows - 1
 
-		pa := 0
-		for a := 0; a <= baris; a++ {
-			Za := 0
+		move := 0
+		for a := 0; a <= numRows; a++ {
+			position := 0
 
 			for i := a; i <= longprint; i = i + 2 {
 
-				//fmt.Print(pa)
-				if (Za+pa)%baris == 0 {
-					fmt.Print(string(huruf[i]), "  ")
-					Za++
+				//fmt.Print(move)
+				if (position+move)%numRows == 0 {
+					fmt.Print(string(s[i]), "  ")
+					position++
 
-				} else if (Za % baris) == 0 {
-					fmt.Print(string(huruf[i]), "  ")
-					Za++
+				} else if (position % numRows) == 0 {
+					fmt.Print(string(s[i]), "  ")
+					position++
 
 				} else {
 					fmt.Print("   ")
-					Za++
+					position++
 				}
 
 			}
-			fmt.Println("")
-			pa++
+			fmt.Println(" ")
+			move++
 
 		}
 
